@@ -2,6 +2,7 @@ import models.Pessoa;
 
 import java.time.Instant;
 import java.util.Date;
+import java.text.DateFormat;
 
 public class ExemploDataNascimento {
     public static void main(String[] args) {
@@ -11,7 +12,10 @@ public class ExemploDataNascimento {
         pessoa01.setDataNascimento(478926000000L);
 
         Date dataNasc = new Date(pessoa01.getDataNascimento());
-        Instant nascInstant = dataNasc.toInstant();
+        //Instant nascInstant = dataNasc.toInstant(); //Sua data de nascimento: 1985-03-06T03:00:00Z
+
+        //String nascInstant = DateFormat.getInstance().format(dataNasc); //Sua data de nascimento: 3/6/85, 12:00 AM
+        String nascInstant = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT).format(dataNasc); //Sua data de nascimento: March 6, 1985, 12:00 AM
 
         Date dataCompare = new Date(1273892400000L); //15 de maio de 2010
 
